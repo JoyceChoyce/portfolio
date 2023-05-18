@@ -4,18 +4,17 @@ const svg = document.getElementById("base-svg");
 // Particle class definition
 class Particle {
     constructor(xPos, yPos, radius, box) {
-        this.x = xPos; // Initial x-position of the circle
-        this.y = yPos; // Initial y-position of the circle
-        this.r = radius; // Size of the circle
-        this.svgElement; // Circle SVG element
-        this.animDuration = randomNum(3, 5); // Duration for circle animation
-        this.targetX = randomNum(0, box.width); // Target x-position for the circle
-        this.targetY = randomNum(0, box.height); // Target y-position for the circle
-        this.box = box; // Reference to the SVG box
-        this.svg = svg; // Reference to the SVG element
+        this.x = xPos; 
+        this.y = yPos; 
+        this.r = radius;
+        this.svgElement; 
+        this.animDuration = randomNum(3, 5); 
+        this.targetX = randomNum(0, box.width);
+        this.targetY = randomNum(0, box.height); 
+        this.box = box; 
+        this.svg = svg; 
     }
 
-    // Create and draw the particle on the SVG canvas
     drawParticle() {
         this.svgElement = makeCircle(this.x, this.y, this.r, randomRGB());
         svg.appendChild(this.svgElement);
@@ -23,13 +22,11 @@ class Particle {
         this.addAnimateY();
     }
 
-    // Add animation for the 'cx' attribute of the circle
     addAnimateX() {
         let animElement = createAnimateElement('cx', `${this.x}; ${this.targetX};`, this.animDuration);
         this.svgElement.appendChild(animElement);
     }
 
-    // Add animation for the 'cy' attribute of the circle
     addAnimateY() {
         let animElement = createAnimateElement('cy', `${this.y}; ${this.box.height}`, this.animDuration, 'spline');
         this.svgElement.appendChild(animElement);
@@ -50,6 +47,11 @@ function createParticlesArray(num, box) {
     return particleInstances;
 }
 
+/**
+ * SETUP
+ */
+
+
 // Set the background color and viewbox of the SVG canvas
 svg.setAttribute("style", "background-color: black");
 const bbox = svg.getBoundingClientRect();
@@ -64,6 +66,10 @@ for (let particle of particles) {
 // Resize the SVG canvas and particles when the window is resized
 window.addEventListener('resize', resizeSvg);
 
+/**
+ * UTILS
+ */
+
 function resizeSvg() {
     const svg = document.getElementById('base-svg');
     const bbox = svg.getBoundingClientRect();
@@ -77,7 +83,6 @@ function resizeSvg() {
     }
 }
 
-// Generate a random number within a specified range
 function randomNum(lower, upper) {
     return lower + Math.random() * (upper - lower);
 }

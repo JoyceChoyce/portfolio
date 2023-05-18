@@ -54,12 +54,14 @@ body {
 
 /* Media Queries */
 @media only screen and (min-width: 810px) and (max-height: 1080px) {
+  /* stack */
   .grid-container {
     display: block;
   }
 }
 
 @media only screen and (min-width: 2560px) and (max-height: 1440px) {
+  /* split */
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1.2fr 0.8fr;
