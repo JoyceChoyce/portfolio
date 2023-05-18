@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game of Nature</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main class="grid-container">
+      <div id="title">
+        <h1>Game of Nature</h1>
+      </div>
+      <svg id="base-svg"></svg>
+      <div id="controls">
+        <button>TRASH</button>
+        <button>PREDATOR - big fish</button>
+        <button>PREY - small fish</button>
+        <div>alignment: <input type="range" min="0" max="2" step="0.1" /></div>
+        <div>cohesion: <input type="range" min="0" max="2" step="0.1" /></div>
+        <div>separation: <input type="range" min="0" max="2" step="0.1" /></div>
+        <button>RESET</button>
+        <button>MUSIC [play/ stop]</button>
+        <button>HIDE</button>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
